@@ -580,6 +580,7 @@ GameObject:
   - component: {fileID: 473405378}
   - component: {fileID: 473405379}
   - component: {fileID: 473405380}
+  - component: {fileID: 473405381}
   m_Layer: 0
   m_Name: Firebase
   m_TagString: Untagged
@@ -748,6 +749,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eaa6755da23065540b85f25c48aef84e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &473405381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473405374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b83f48b716d0efa4b8284ae7f15cc72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &507942899

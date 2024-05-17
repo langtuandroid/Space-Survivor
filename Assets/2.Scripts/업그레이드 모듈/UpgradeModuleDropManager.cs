@@ -39,7 +39,7 @@ public class UpgradeModuleDropManager : MonoBehaviour
     /// </summary>
     public void OptainModules()
     {
-        // Firebase.Analytics.FirebaseAnalytics.LogEvent("ObtainModuleOnStage", "ModuleCount", getUpgradeModuleOnThisStage.Count);
+        EventManager.instance.CustomEvent(AnalyticsType.GAME, "ObtainModuleOnStage");
 
         for (int i = 0; i < getUpgradeModuleOnThisStage.Count; i++)
         {

@@ -153,7 +153,7 @@ public class PlayerStat : MonoBehaviour
 
         playerDieEvent.Invoke();
 
-        // Firebase.Analytics.FirebaseAnalytics.LogEvent("PlayerDie", "enemyName", name);
+        EventManager.instance.CustomEvent(AnalyticsType.GAME, "PlayerDie by - " + name);
 
         //gameObject.SetActive(false);
 

@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
         if (!ES3.KeyExists("TryStage"))
         {
             ES3.Save("TryStage", 0);
-            // Firebase.Analytics.FirebaseAnalytics.LogEvent("TryStage", "StageNum", ES3.Load<int>("TryStage").ToString());
+            EventManager.instance.CustomEvent(AnalyticsType.GAME, "TryStage - " + ES3.Load<int>("TryStage").ToString());
         }
 
     }
@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
 
         InterstitialAdCaller.instance.StartIrAdsCoolTime();
 
-        // FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelStart);
+        // EventManager.instance.CustomEvent(AnalyticsType.GAME, "Start Stage "FirebaseAnalytics.EventLevelStart);
 
         FPSDisplay.instance.ResetMinFPS();
 
@@ -179,14 +179,14 @@ public class GameManager : MonoBehaviour
         playerUpgradeModule.UnapplyModuleStat();
         playerUpgradeModule.AddUpgradeModulesToPlayerStat();
 
-        // Firebase.Analytics.FirebaseAnalytics.LogEvent("StageStart", "StageName", EnemyGenerator.instance.currentEnemySpawnWaveObject.name);
+        EventManager.instance.CustomEvent(AnalyticsType.GAME, "Stage Start - " + EnemyGenerator.instance.currentEnemySpawnWaveObject.name);
 
         playerUpgradeModule.StartMineral();
         PlayGameEvent.Invoke();
 
         ES3.Save("TryStage", ES3.Load<int>("TryStage") + 1);
         // print(ES3.Load<int>("TryStage"));
-        // Firebase.Analytics.FirebaseAnalytics.LogEvent("TryStage", "StageNum", ES3.Load<int>("TryStage").ToString());
+        EventManager.instance.CustomEvent(AnalyticsType.GAME,"TryStage - " + ES3.Load<int>("TryStage").ToString());
 
         stageProgressBar.value = 0;
 
@@ -236,7 +236,7 @@ public class GameManager : MonoBehaviour
         EnemyGenerator.instance.deleteBossWall();
         InterstitialAdCaller.instance.StopIrAdsCoolTime();
 
-        // FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelEnd);
+        // EventManager.instance.CustomEvent(FirebaseAnalytics.EventLevelEnd);
 
         FPSDisplay.instance.SaveFPS();
 
@@ -289,9 +289,9 @@ public class GameManager : MonoBehaviour
 
         if (!revivedThisGame)
         {
-            // Firebase.Analytics.FirebaseAnalytics.LogEvent("Die_EnemyKillCount", "EnemyKillCount", currentKillCount);
-            // Firebase.Analytics.FirebaseAnalytics.LogEvent("Die_GetCrystalCount", "GetCrystalCount", playerStat.currentCrystal);
-            // Firebase.Analytics.FirebaseAnalytics.LogEvent("Die_CurrentLevel", "CurrentLevel", playerStat.GetCurrentPlayerLevel());
+            EventManager.instance.CustomEvent(AnalyticsType.GAME,"Die_EnemyKillCount - " +  currentKillCount);
+            EventManager.instance.CustomEvent(AnalyticsType.GAME,"Die_GetCrystalCount - " + playerStat.currentCrystal);
+            EventManager.instance.CustomEvent(AnalyticsType.GAME,"Die_CurrentLevel - " + playerStat.GetCurrentPlayerLevel());
 
             revivedTimer = 1f;
             reviveButton.SetActive(true);
@@ -322,7 +322,7 @@ public class GameManager : MonoBehaviour
 
         gameStart = false;
 
-        // FirebaseAnalytics.LogEvent("playerDieEvent");
+        EventManager.instance.CustomEvent(AnalyticsType.GAME,"player Die Time - " + timer.text);
     }
 
     [Button]
@@ -351,7 +351,7 @@ public class GameManager : MonoBehaviour
 
         //CrystalMotion.instance.StartCrystalMotion(1,playerStat.currentCrystal);
 
-        // FirebaseAnalytics.LogEvent("stageClearEvent");
+        EventManager.instance.CustomEvent(AnalyticsType.GAME, "stageClearEvent");
 
         UserDataManager.instance.StageClearSaveData(stageSelect.currentStageNumber);
 
@@ -569,7 +569,7 @@ public class GameManager : MonoBehaviour
 
         UserDataManager.instance.AddCrystalValue(-currentShip.shipObjectData.shipCost);
 
-        // Firebase.Analytics.FirebaseAnalytics.LogEvent("BuyShip", "ShipCode", currentShip.shipObjectData.shipCode);
+        EventManager.instance.CustomEvent(AnalyticsType.GAME,"BuyShip - " + currentShip.shipObjectData.shipCode);
     }
 
     public void ShipUpgradeUIOnOff()

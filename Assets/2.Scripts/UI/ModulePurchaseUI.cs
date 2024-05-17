@@ -86,7 +86,7 @@ public class ModulePurchaseUI : MonoBehaviour
             newModules.Add(newModule);
             OpenModuleBoxUnboxingUI(newModules, TextAnchor.MiddleCenter);
 
-            // Firebase.Analytics.FirebaseAnalytics.LogEvent("ADS_RvAdsComplete_FreeModule");
+            EventManager.instance.CustomEvent(AnalyticsType.ADS, "ADS_RvAdsComplete_FreeModule");
         }, RewardType.FreeModule.ToString());
 
         AudioManager.instance.PlaySFX("click2");
@@ -110,7 +110,7 @@ public class ModulePurchaseUI : MonoBehaviour
 
         OpenModuleBoxUnboxingUI(newModules, TextAnchor.MiddleCenter);
 
-        // Firebase.Analytics.FirebaseAnalytics.LogEvent("Module_BuyOneModule");
+        EventManager.instance.CustomEvent(AnalyticsType.GAME, "Module_BuyOneModule");
     }
 
     public void PurchaseTenModule()
@@ -133,7 +133,7 @@ public class ModulePurchaseUI : MonoBehaviour
 
         OpenModuleBoxUnboxingUI(newModules, TextAnchor.UpperLeft);
 
-        // Firebase.Analytics.FirebaseAnalytics.LogEvent("Module_BuyTenModule");
+        EventManager.instance.CustomEvent(AnalyticsType.GAME, "Module_BuyTenModule");
     }
 
     public static void OpenModuleBoxUnboxingUI(List<UpgradeModuleObject> modules, TextAnchor anchor)

@@ -51,8 +51,6 @@ public class FirebaseInit : MonoBehaviour
 
     void Start()
     {
-
-
         this.TaskWaitUntil(() => SceneManager.LoadScene("MainScene"), () => ready == true);
 
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>

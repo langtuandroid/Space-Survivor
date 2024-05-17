@@ -176,11 +176,11 @@ public class UpgradeSlot : MonoBehaviour
         switch (weaponObject.GetAnyEqupment())
         {
             case AnyEqupment.Weapon:
-                // Firebase.Analytics.FirebaseAnalytics.LogEvent("SelectWeaponUpgrade", "WeaponId", weaponObject.GetWeaponObject().GetEquipmentType().ToString());
+                EventManager.instance.CustomEvent(AnalyticsType.GAME, "SelectWeaponUpgrade - " + weaponObject.GetWeaponObject().GetEquipmentType().ToString());
                 break;
 
             case AnyEqupment.Passive:
-                // Firebase.Analytics.FirebaseAnalytics.LogEvent("SelectPassiveUpgrade", "PassiveId", weaponObject.GetPassive().GetEquipmentType().ToString());
+                EventManager.instance.CustomEvent(AnalyticsType.GAME, "SelectPassiveUpgrade - " + weaponObject.GetPassive().GetEquipmentType().ToString());
                 break;
         }
 

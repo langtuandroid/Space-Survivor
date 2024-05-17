@@ -97,7 +97,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
         UserDataManager.instance.AddCrystalValue(1000);
 
-        // FirebaseAnalytics.LogEvent("IAP_StarterPackPurchaseSuccess");
+        EventManager.instance.CustomEvent(AnalyticsType.IAP, "IAP_StarterPackPurchaseSuccess");
 
         CheckRemoveAdsHasPurchase();
 
@@ -110,7 +110,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
         UserDataManager.instance.AddCrystalValue(2500);
 
-        // FirebaseAnalytics.LogEvent("IAP_MegaPackPurchaseSuccess");
+        EventManager.instance.CustomEvent(AnalyticsType.IAP, "IAP_MegaPackPurchaseSuccess");
 
         CheckRemoveAdsHasPurchase();
 
@@ -124,7 +124,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
         UserDataManager.instance.AddCrystalValue(5000);
 
-        // FirebaseAnalytics.LogEvent("IAP_UltraPackPurchaseSuccess");
+        EventManager.instance.CustomEvent(AnalyticsType.IAP, "IAP_UltraPackPurchaseSuccess");
 
         CheckRemoveAdsHasPurchase();
 
@@ -139,7 +139,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
         // GoogleCloud.instance.SaveUserDataWithCloud(UserDataManager.instance.currentUserData);
         UserDataManager.instance.Save();
 
-        // FirebaseAnalytics.LogEvent("IAP_RemoveAdsPurchaseSuccess");
+        EventManager.instance.CustomEvent(AnalyticsType.IAP, "IAP_RemoveAdsPurchaseSuccess");
 
         CheckRemoveAdsHasPurchase();
 

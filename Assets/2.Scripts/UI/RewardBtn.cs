@@ -42,7 +42,7 @@ public class RewardBtn : MonoBehaviour
                                     EnemyGenerator.instance.StartSpawnEnemy();
                                     GameManager.instance.playerStat.Resurrection();
                                     InterstitialAdCaller.instance.RestartIrAdsCoolTime();
-                                    // FirebaseAnalytics.LogEvent("ADS_RvAdsComplete_Revive");
+                                    EventManager.instance.CustomEvent(AnalyticsType.ADS, "ADS_RvAdsComplete_Revive");
                                 });
 
                                 break;
@@ -60,7 +60,7 @@ public class RewardBtn : MonoBehaviour
                                     AdManager.instance.touchProjectPanel.SetActive(false);
                                     InterstitialAdCaller.instance.RestartIrAdsCoolTime();
 
-                                    // FirebaseAnalytics.LogEvent("ADS_RvAdsComplete_TrialShip");
+                                    EventManager.instance.CustomEvent(AnalyticsType.ADS, "ADS_RvAdsComplete_TrialShip - " +  GameManager.instance.currentShip.shipObjectData.shipCode);
                                     // FirebaseAnalytics.LogEvent("TrialShip", "shipName", GameManager.instance.currentShip.shipObjectData.shipCode);
                                 });
 
@@ -74,7 +74,7 @@ public class RewardBtn : MonoBehaviour
                                 gameObject.SetActive(false);
                                 // AdManager.instance.crystalBonusRVBtn?.SetActive(false);
 
-                                // FirebaseAnalytics.LogEvent("ADS_RvAdsComplete_DoubleCrystal");
+                                EventManager.instance.CustomEvent(AnalyticsType.ADS,"ADS_RvAdsComplete_DoubleCrystal");
                                 break;
 
                             case RewardType.FreeModule:
@@ -84,7 +84,7 @@ public class RewardBtn : MonoBehaviour
                                 InterstitialAdCaller.instance.RestartIrAdsCoolTime();
                                 AdManager.instance.crystalBonusRVBtn?.SetActive(false);
 
-                                // FirebaseAnalytics.LogEvent("ADS_RvAdsComplete_DoubleCrystal");
+                                EventManager.instance.CustomEvent(AnalyticsType.ADS, "ADS_RvAdsComplete_DoubleCrystal");
                                 break;
 
                             case RewardType.FreeCrystal:
@@ -93,7 +93,7 @@ public class RewardBtn : MonoBehaviour
                                 UserDataManager.instance.AddCrystalValue(AdManager.instance.crystalValue);
                                 InterstitialAdCaller.instance.RestartIrAdsCoolTime();
 
-                                // FirebaseAnalytics.LogEvent("ADS_RvAdsComplete_FreeCrystal");
+                                EventManager.instance.CustomEvent(AnalyticsType.ADS,"ADS_RvAdsComplete_FreeCrystal");
                                 break;
 
 
