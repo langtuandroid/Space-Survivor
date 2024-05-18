@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Firebase.Analytics;
-using UnityEngine.Analytics;
+using GameAnalyticsSDK;
 
 public class EventManager : MonoBehaviour
 {
@@ -213,6 +213,8 @@ public class EventManager : MonoBehaviour
                 eventParams[i++] = new Parameter(item.Key, item.Value);
 
                 print("<color=blue>[Firebase]</color> " + eventName + " - " + item.Key + " - " + item.Value);
+
+                GameAnalytics.NewDesignEvent(item.Key + " - " + item.Value);
             }
             FirebaseAnalytics.LogEvent(eventName, eventParams);
         }
