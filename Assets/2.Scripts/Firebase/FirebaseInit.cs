@@ -286,7 +286,7 @@ public class FirebaseInit : MonoBehaviour
                 // print(snapshot.Value.ToString());
 
                 Debug.Log("<color=blue>[Firebase]</color> 해당 User의 데이터를 불러왔습니다.");
-                print(task.Result.Exists);
+                // print(task.Result.Exists);
 
                 foreach (var data in snapshot.Children)
                 {

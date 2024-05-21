@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using Firebase.Analytics;
 using GameAnalyticsSDK;
+using Unity.VisualScripting;
 
 public class EventManager : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class EventManager : MonoBehaviour
         else
             CustomEvent(AnalyticsType.PLAYTIME, " - " + playtime.ToString(), true, true);
 
-        this.TaskWhile(30, 0, () =>
+        this.TaskWhile(30, 1, () =>
         {
             playtime += 30;
             ES3.Save<int>("playtime", playtime);
@@ -214,7 +215,10 @@ public class EventManager : MonoBehaviour
 
                 print("<color=blue>[Firebase]</color> " + eventName + " - " + item.Key + " - " + item.Value);
 
-                GameAnalytics.NewDesignEvent(item.Key + " - " + item.Value);
+                if (GameAnalytics.Initialized)
+                {
+                    GameAnalytics.NewDesignEvent(item.Key + " - " + item.Value);
+                }
             }
             FirebaseAnalytics.LogEvent(eventName, eventParams);
         }

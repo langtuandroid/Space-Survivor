@@ -23,10 +23,11 @@ public class RewardBtn : MonoBehaviour
                         {
                             case RewardType.GetAll:
                                 LevelUpManager.instance.GetAllCurrentUpgrade();
+
+                                EventManager.instance.CustomEvent(AnalyticsType.RV, "GainReward_GetAllUpgrade");
                                 break;
 
                             case RewardType.Revive:
-                                print(1);
                                 if (GameManager.instance.reviveAnimationSequence != null)
                                     GameManager.instance.reviveAnimationSequence.Kill();
 
@@ -42,7 +43,7 @@ public class RewardBtn : MonoBehaviour
                                     EnemyGenerator.instance.StartSpawnEnemy();
                                     GameManager.instance.playerStat.Resurrection();
                                     InterstitialAdCaller.instance.RestartIrAdsCoolTime();
-                                    EventManager.instance.CustomEvent(AnalyticsType.ADS, "ADS_RvAdsComplete_Revive");
+                                    EventManager.instance.CustomEvent(AnalyticsType.RV, "GainReward_Revive");
                                 });
 
                                 break;
@@ -60,7 +61,7 @@ public class RewardBtn : MonoBehaviour
                                     AdManager.instance.touchProjectPanel.SetActive(false);
                                     InterstitialAdCaller.instance.RestartIrAdsCoolTime();
 
-                                    EventManager.instance.CustomEvent(AnalyticsType.ADS, "ADS_RvAdsComplete_TrialShip - " +  GameManager.instance.currentShip.shipObjectData.shipCode);
+                                    EventManager.instance.CustomEvent(AnalyticsType.RV, "GainReward_TrialShip - " + GameManager.instance.currentShip.shipObjectData.shipCode);
                                     // FirebaseAnalytics.LogEvent("TrialShip", "shipName", GameManager.instance.currentShip.shipObjectData.shipCode);
                                 });
 
@@ -74,7 +75,7 @@ public class RewardBtn : MonoBehaviour
                                 gameObject.SetActive(false);
                                 // AdManager.instance.crystalBonusRVBtn?.SetActive(false);
 
-                                EventManager.instance.CustomEvent(AnalyticsType.ADS,"ADS_RvAdsComplete_DoubleCrystal");
+                                EventManager.instance.CustomEvent(AnalyticsType.RV, "GainReward_DoubleCrystal");
                                 break;
 
                             case RewardType.FreeModule:
@@ -84,7 +85,7 @@ public class RewardBtn : MonoBehaviour
                                 InterstitialAdCaller.instance.RestartIrAdsCoolTime();
                                 AdManager.instance.crystalBonusRVBtn?.SetActive(false);
 
-                                EventManager.instance.CustomEvent(AnalyticsType.ADS, "ADS_RvAdsComplete_DoubleCrystal");
+                                EventManager.instance.CustomEvent(AnalyticsType.RV, "GainReward_DoubleCrystal");
                                 break;
 
                             case RewardType.FreeCrystal:
@@ -93,7 +94,7 @@ public class RewardBtn : MonoBehaviour
                                 UserDataManager.instance.AddCrystalValue(AdManager.instance.crystalValue);
                                 InterstitialAdCaller.instance.RestartIrAdsCoolTime();
 
-                                EventManager.instance.CustomEvent(AnalyticsType.ADS,"ADS_RvAdsComplete_FreeCrystal");
+                                EventManager.instance.CustomEvent(AnalyticsType.RV, "GainReward_FreeCrystal");
                                 break;
 
 

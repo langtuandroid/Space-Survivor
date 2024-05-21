@@ -186,7 +186,7 @@ public class GameManager : MonoBehaviour
 
         ES3.Save("TryStage", ES3.Load<int>("TryStage") + 1);
         // print(ES3.Load<int>("TryStage"));
-        EventManager.instance.CustomEvent(AnalyticsType.GAME,"TryStage - " + ES3.Load<int>("TryStage").ToString());
+        EventManager.instance.CustomEvent(AnalyticsType.GAME, "TryStage - " + ES3.Load<int>("TryStage").ToString());
 
         stageProgressBar.value = 0;
 
@@ -289,9 +289,9 @@ public class GameManager : MonoBehaviour
 
         if (!revivedThisGame)
         {
-            EventManager.instance.CustomEvent(AnalyticsType.GAME,"Die_EnemyKillCount - " +  currentKillCount);
-            EventManager.instance.CustomEvent(AnalyticsType.GAME,"Die_GetCrystalCount - " + playerStat.currentCrystal);
-            EventManager.instance.CustomEvent(AnalyticsType.GAME,"Die_CurrentLevel - " + playerStat.GetCurrentPlayerLevel());
+            EventManager.instance.CustomEvent(AnalyticsType.GAME, "Die_EnemyKillCount - " + currentKillCount);
+            EventManager.instance.CustomEvent(AnalyticsType.GAME, "Die_GetCrystalCount - " + playerStat.currentCrystal);
+            EventManager.instance.CustomEvent(AnalyticsType.GAME, "Die_CurrentLevel - " + playerStat.GetCurrentPlayerLevel());
 
             revivedTimer = 1f;
             reviveButton.SetActive(true);
@@ -322,7 +322,7 @@ public class GameManager : MonoBehaviour
 
         gameStart = false;
 
-        EventManager.instance.CustomEvent(AnalyticsType.GAME,"player Die Time - " + timer.text);
+        EventManager.instance.CustomEvent(AnalyticsType.GAME, "player Die Time - " + timer.text);
     }
 
     [Button]
@@ -486,8 +486,10 @@ public class GameManager : MonoBehaviour
     {
         if (!UserDataManager.instance.CheckPlayerHaveShip(currentShip.shipObjectData.shipCode) && currentShip.shipObjectData.shipCost > 0)
         {
-            shipBuyBtn.SetActive(true);
-            shipTrialBtn.SetActive(true);
+            if (shipBuyBtn != null)
+                shipBuyBtn.SetActive(true);
+            if (shipTrialBtn != null)
+                shipTrialBtn.SetActive(true);
             shipCostText.text = currentShip.shipObjectData.shipCost.ToString();
 
             // if (currentShip.shipCost > UserDataManager.instance.currentUserData.crystal)
@@ -501,17 +503,21 @@ public class GameManager : MonoBehaviour
 
             if (currentShip.shipObjectData.shipCost > UserDataManager.instance.currentUserData.crystal)
             {
-                shipBuyBtn.GetComponent<Button>().interactable = false;
+                if (shipBuyBtn != null)
+                    shipBuyBtn.GetComponent<Button>().interactable = false;
             }
             else
             {
-                shipBuyBtn.GetComponent<Button>().interactable = true;
+                if (shipBuyBtn != null)
+                    shipBuyBtn.GetComponent<Button>().interactable = true;
             }
         }
         else
         {
-            shipBuyBtn.SetActive(false);
-            shipTrialBtn.SetActive(false);
+            if (shipBuyBtn != null)
+                shipBuyBtn.SetActive(false);
+            if (shipTrialBtn != null)
+                shipTrialBtn.SetActive(false);
         }
     }
 
@@ -569,7 +575,7 @@ public class GameManager : MonoBehaviour
 
         UserDataManager.instance.AddCrystalValue(-currentShip.shipObjectData.shipCost);
 
-        EventManager.instance.CustomEvent(AnalyticsType.GAME,"BuyShip - " + currentShip.shipObjectData.shipCode);
+        EventManager.instance.CustomEvent(AnalyticsType.GAME, "BuyShip - " + currentShip.shipObjectData.shipCode);
     }
 
     public void ShipUpgradeUIOnOff()

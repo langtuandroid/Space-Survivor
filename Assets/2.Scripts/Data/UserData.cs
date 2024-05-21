@@ -85,13 +85,13 @@ public class UserData
                 return UserDataManager.instance.shipList.shipList.Find((n) => n.shipObjectData.shipCode.Equals(code)).shipObjectData;
         }
 
-        Debug.LogWarning(code + " 이 코드에 해당하는 소지중인 함선이 없습니다.");
+        Debug.Log(code + " 이 코드에 해당하는 소지중인 함선이 없습니다.");
 
         foreach (ShipObject ship in GameManager.instance.shipList.shipList)
         {
             if (ship.shipObjectData.shipCode.Equals(code))
             {
-                MonoBehaviour.print(ship.shipObjectData.baseMoveSpeed.GetBaseValue() + " " + ship.shipObjectData.baseRotationSpeed.GetBaseValue());
+                // MonoBehaviour.print(ship.shipObjectData.baseMoveSpeed.GetBaseValue() + " " + ship.shipObjectData.baseRotationSpeed.GetBaseValue());
                 return ship.shipObjectData;
             }
         }

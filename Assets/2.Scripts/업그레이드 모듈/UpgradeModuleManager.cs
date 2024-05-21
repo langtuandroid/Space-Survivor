@@ -187,7 +187,7 @@ public class UpgradeModuleManager : MonoBehaviour
     {
         try
         {
-            print(UserDataManager.instance.currentUserData.equipModuleSaveDatas.Length);
+            // print(UserDataManager.instance.currentUserData.equipModuleSaveDatas.Length);
             for (int e = 0; e < UserDataManager.instance.currentUserData.equipModuleSaveDatas.Length; e++)
             {
                 for (int i = 0; i < UserDataManager.instance.currentUserData.equipModuleSaveDatas[e].equipedModules.Length; i++)

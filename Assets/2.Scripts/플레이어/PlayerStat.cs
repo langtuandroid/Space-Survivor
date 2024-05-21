@@ -352,7 +352,7 @@ public class PlayerStat : MonoBehaviour
         //}
 
         //
-        print(1);
+        // print(1);
         GetShipStat(UserDataManager.instance.currentUserData.GetShipDataFromPlayerHaveShip(ship.shipObjectData.shipCode));
     }
 

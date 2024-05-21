@@ -68,7 +68,7 @@ public class EnemyGenerator : MonoBehaviour
         SpawnArea.x = spawnCircleRadius;
         SpawnArea.y = spawnCircleRadius;
 
-        print("적 스폰 거리 : " + SpawnArea);
+        // print("적 스폰 거리 : " + SpawnArea);
     }
 
     public void StartSpawnEnemy()

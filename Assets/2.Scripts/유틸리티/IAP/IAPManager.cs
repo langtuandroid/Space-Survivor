@@ -307,10 +307,10 @@ public class IAPManager : MonoBehaviour, IStoreListener
         try
         {
             var product = m_StoreController.products.WithID(removeAdsId);
-            print(UserDataManager.instance);
-            print(UserDataManager.instance.currentUserData);
-            print(UserDataManager.instance.currentUserData.RemoveAds);
-            print(product.hasReceipt);
+            // print(UserDataManager.instance);
+            // print(UserDataManager.instance.currentUserData);
+            // print(UserDataManager.instance.currentUserData.RemoveAds);
+            // print(product.hasReceipt);
 
             if (UserDataManager.instance.currentUserData.RemoveAds)
             {
@@ -338,7 +338,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
         var product = m_StoreController.products.WithID(removeAdsId);
         bool purchased = false;
 
-        print(product.receipt);
+        // print(product.receipt);
 
         if (product.hasReceipt)
         {
@@ -355,7 +355,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
         product = m_StoreController.products.WithID(starterPackId);
 
-        print(product.receipt);
+        // print(product.receipt);
 
         if (product.hasReceipt)
         {
@@ -372,7 +372,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
         product = m_StoreController.products.WithID(megaPackId);
 
-        print(product.receipt);
+        // print(product.receipt);
 
         if (product.hasReceipt)
         {
@@ -389,7 +389,7 @@ public class IAPManager : MonoBehaviour, IStoreListener
 
         product = m_StoreController.products.WithID(ultraPackId);
 
-        print(product.receipt);
+        // print(product.receipt);
 
         if (product.hasReceipt)
         {
