@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using Cysharp.Threading.Tasks.Linq;
 
 public class AdManager : MonoBehaviour
 {
@@ -61,6 +62,8 @@ public class AdManager : MonoBehaviour
                 {
                     CreateBannerView();
 
+                    // MAX.MaxBannerInstance.ShowBanner();
+
                     print("NoAds가 없기 때문에 배너 광고 시작");
                 }
                 else
@@ -105,6 +108,11 @@ public class AdManager : MonoBehaviour
         }
         else
             LoadRewardedAd();
+
+        // MAX.MaxRewardInstance.ShowReward((adUnitId, reward, adInfo) =>
+        // {
+        //     onGainReward.Invoke();
+        // });
     }
 
     /// <summary>
