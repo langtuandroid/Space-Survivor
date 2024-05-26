@@ -453,12 +453,12 @@ public class RewardedInterstitialAdCaller : MonoBehaviour
         }
 
         //보상형 광고 표시가 실패하였습니다.
-        void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args)
-        {
-            MonoBehaviour.print(
-                "광고 표시를 실패하였습니다: "
-                                 + args.AdError.GetMessage());
-        }
+        // void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args)
+        // {
+        //     MonoBehaviour.print(
+        //         "광고 표시를 실패하였습니다: "
+        //                          + args.AdError.GetMessage());
+        // }
 
         //사용자가 보상형 광고를 취소하였을때
         void HandleRewardedAdClosed(object sender, EventArgs args)

@@ -6,7 +6,6 @@ using Sirenix.OdinInspector;
 using UnityEngine.UI;
 using TMPro;
 using System;
-using Cysharp.Threading.Tasks.Linq;
 
 public class AdManager : MonoBehaviour
 {
@@ -48,6 +47,8 @@ public class AdManager : MonoBehaviour
 
     public void Start()
     {
+        // GoogleMobileAds.Mediation.AppLovin.Api.AppLovin.SetHasUserConsent(true);
+
         MobileAds.Initialize((InitializationStatus initStatus) =>
         {
             // This callback is called once the MobileAds SDK is initialized.

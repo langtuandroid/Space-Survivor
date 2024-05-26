@@ -74,7 +74,8 @@ public class BottomBanner : MonoBehaviour
         this.bannerView = new BannerView(adUnitId, adaptiveSize, AdPosition.Bottom);
 
         // Create an empty ad request.
-        AdRequest request = new AdRequest.Builder().Build();
+        // AdRequest request = new AdRequest.Builder().Build();
+        AdRequest request = new AdRequest();
 
         // Load the banner with the request.
         this.bannerView.LoadAd(request);
