@@ -38,9 +38,9 @@ googleBtn.gameObject.SetActive(true);
 
 
         if (ES3.KeyExists("FastLogin") && ES3.KeyExists("FastLoginType"))
-        {
             Login(ES3.Load<LoginType>("FastLoginType"));
-        }
+        else
+            loginParent.SetActive(true);
 
         guestBtn.onClick.AddListener(() => Login(LoginType.GUEST));
         googleBtn.onClick.AddListener(() => Login(LoginType.GOOGLE));
