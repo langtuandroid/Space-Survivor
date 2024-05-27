@@ -69,6 +69,8 @@ public class FirebaseInit : MonoBehaviour
                 firebaseDatabase.SetPersistenceEnabled(false);
 
                 print("Firebase dependencies 연동 선공 + " + task.Result);
+
+                GoogleMobileAds.Api.Mediation.AppLovin.AppLovin.Initialize();
             }
             else
             {
