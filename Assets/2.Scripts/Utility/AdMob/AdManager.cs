@@ -53,12 +53,34 @@ public class AdManager : MonoBehaviour
         {
             // This callback is called once the MobileAds SDK is initialized.
 
+            Dictionary<string, AdapterStatus> map = initStatus.getAdapterStatusMap();
+            foreach (KeyValuePair<string, AdapterStatus> keyValuePair in map)
+            {
+                string className = keyValuePair.Key;
+                AdapterStatus status = keyValuePair.Value;
+                switch (status.InitializationState)
+                {
+                    case AdapterState.NotReady:
+                        // The adapter initialization did not complete.
+                        MonoBehaviour.print("Adapter: " + className + " not ready.");
+                        break;
+                    case AdapterState.Ready:
+                        // The adapter was successfully initialized.
+                        MonoBehaviour.print("Adapter: " + className + " is initialized.");
+                        break;
+                }
+            }
+
             LoadRewardedAd();
             this.TaskWaitUntil(() => RegisterRewardEventHandlers(rewardedAd), () => rewardedAd != null);
             this.TaskWaitUntil(() => RegisterInstitalEventHandlers(interstitial), () => interstitial != null);
 
             this.TaskWaitUntil(() =>
             {
+                CreateBannerView();
+
+                // AudienceNetworkAds.Initialize();
+
                 if (!UserDataManager.instance.currentUserData.RemoveAds && !IAPManager.instance.HadPurchased())
                 {
                     CreateBannerView();
@@ -74,6 +96,8 @@ public class AdManager : MonoBehaviour
             }, () => IAPManager.instance.initialized);
 
             RewardAdInit();
+
+
         });
 
     }
