@@ -5,14 +5,20 @@ using GoogleMobileAds.Api;
 using GoogleMobileAds.Ump;
 using GoogleMobileAds.Ump.Api;
 using GoogleMobileAds.Common;
+using AudienceNetwork;
 
 public class GDPR_Manager : MonoBehaviour
 {
+    // private void Awake()
+    // {
+    //     AdSettings.AddTestDevice("faf3e7af-272a-4a76-8c0a-18d77f00722e");
+    //     AudienceNetworkAds.Initialize();
+    // }
+
     // Start is called before the first frame update
     void Start()
     {
         MobileAds.RaiseAdEventsOnUnityMainThread = true;
-
         //테스트 할때만 활성화
 
         // ConsentInformation.Reset();
@@ -67,7 +73,7 @@ public class GDPR_Manager : MonoBehaviour
             if (ConsentInformation.CanRequestAds())
             {
                 // UnityEngine.Debug.Log("UMP : ConsentInformation.CanRequestAds");
-                
+
             }
         });
     }
