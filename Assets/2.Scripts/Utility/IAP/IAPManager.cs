@@ -312,16 +312,16 @@ public class IAPManager : MonoBehaviour, IStoreListener
             // print(UserDataManager.instance.currentUserData.RemoveAds);
             // print(product.hasReceipt);
 
-            // if (UserDataManager.instance.currentUserData.RemoveAds)
-            // {
-            //     foreach (GameObject btn in removeAdsButtons)
-            //     {
-            //         btn.SetActive(false);
-            //     }
+            if (UserDataManager.instance.currentUserData.RemoveAds)
+            {
+                foreach (GameObject btn in removeAdsButtons)
+                {
+                    btn.SetActive(false);
+                }
 
-            //     print("광고 제거를 구매하였기 때문에 버튼 비활성화");
-            //     BottomBanner.instance.DestoryBanner();
-            // }
+                print("광고 제거를 구매하였기 때문에 버튼 비활성화");
+                BottomBanner.instance.DestoryBanner();
+            }
         }
         catch (NullReferenceException e)
         {
