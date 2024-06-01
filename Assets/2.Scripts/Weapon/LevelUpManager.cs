@@ -49,6 +49,8 @@ public class LevelUpManager : MonoBehaviour
     public static int getAllUpgradeCount { get; set; } = 0;
     [SerializeField] private int max_getAllUpgradeCount = 3;
     [SerializeField] private GameObject getAllBtn;
+    [SerializeField] private GameObject rerollBtn;
+
 
 
     public static LevelUpManager instance;
@@ -61,6 +63,13 @@ public class LevelUpManager : MonoBehaviour
     public void StartWeaponUpgrade()
     {
         MakeWeaponsList();
+
+        // 모든 업그레이드 획득 RV 버튼 활성화 여부
+        getAllUpgradeCount--;
+        if (getAllUpgradeCount <= 0)
+            getAllBtn.SetActive(true);
+        else
+            getAllBtn.SetActive(false);
 
         UpgradeUI.SetActive(true);
 
@@ -98,13 +107,6 @@ public class LevelUpManager : MonoBehaviour
 
     private void MakeWeaponsList()
     {
-        // 모든 업그레이드 획득 RV 버튼 활성화 여부
-        getAllUpgradeCount--;
-        if (getAllUpgradeCount <= 0)
-            getAllBtn.SetActive(true);
-        else
-            getAllBtn.SetActive(false);
-
         //ȹ�� ������ ����� �߰�
         currentObtainableList.AddRange(obtainableWeapons);
         //ȹ�� ������ �нú�� �߰�
@@ -185,7 +187,6 @@ public class LevelUpManager : MonoBehaviour
 
             currentUpgradeModule.Add(randomWeaponObject);
         }
-
     }
 
     public void SelectUpgrade(IEquipment equipment)
@@ -301,6 +302,11 @@ public class LevelUpManager : MonoBehaviour
 
         playerStat.AfterUpgrade();
         EndUpgrade();
+    }
+
+    public void Reroll()
+    {
+        MakeWeaponsList();
     }
 
 }

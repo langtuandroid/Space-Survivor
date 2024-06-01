@@ -503,6 +503,6 @@ public class AdManager : MonoBehaviour
     #endregion
 }
 
-public enum RewardType { FreeCrystal, FreeModule, TrialShip, GetAll, Revive, DoubleCrystal }
+public enum RewardType { FreeCrystal, FreeModule, TrialShip, GetAll, Revive, DoubleCrystal, Reroll }
 
 
