@@ -167,6 +167,10 @@ MonoBehaviour:
     m_Key: Message_internetNotConnect
     m_Metadata:
       m_Items: []
+  - m_Id: 265198701763260416
+    m_Key: ReRoll
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

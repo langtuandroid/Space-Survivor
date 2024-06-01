@@ -32,7 +32,6 @@ MonoBehaviour:
     - Google.Play.Review
     - Assembly-CSharp
     - AppleAuth
-    - DOTween.Modules
     - Cinemachine
     - Google.Play.Common
     - Google.Play.Instant
@@ -40,6 +39,7 @@ MonoBehaviour:
     - Google.Play.Core
     - Purchasing.Common
     - Sirenix.OdinInspector.Modules.UnityLocalization
+    - Assembly-CSharp-firstpass
     - Google.Android.AppBundle.Editor
     - Google.Play.Instant.Editor
     - PsdPlugin

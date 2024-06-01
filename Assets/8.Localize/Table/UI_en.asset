@@ -171,6 +171,10 @@ MonoBehaviour:
     m_Localized: You are not connected to the Internet or the connection is not stable.
     m_Metadata:
       m_Items: []
+  - m_Id: 265198701763260416
+    m_Localized: Reroll
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

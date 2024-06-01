@@ -10,7 +10,6 @@ public class RewardBtn : MonoBehaviour
     public RewardType type;
 
 
-
     public void OnClick()
     {
         print(AdManager.instance.IsTimeLimitRewardReady(type));
@@ -99,9 +98,6 @@ public class RewardBtn : MonoBehaviour
 
                             case RewardType.Reroll:
                                 LevelUpManager.instance.Reroll();
-
-                                InterstitialAdCaller.instance.RestartIrAdsCoolTime();
-
                                 // EventManager.instance.CustomEvent(AnalyticsType.RV, "GainReward_Reroll");
                                 break;
 

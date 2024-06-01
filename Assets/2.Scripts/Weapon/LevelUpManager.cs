@@ -71,6 +71,8 @@ public class LevelUpManager : MonoBehaviour
         else
             getAllBtn.SetActive(false);
 
+        rerollBtn.SetActive(true);
+
         UpgradeUI.SetActive(true);
 
         UpgradeSlotParent.DOScale(new Vector3(1, 1, 1), 0.2f).SetEase(Ease.Linear).OnComplete(() => upgradeSlotCover.SetActive(false)).SetUpdate(true);
@@ -78,10 +80,8 @@ public class LevelUpManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void EndUpgrade()
+    public void DeleteCurrentUpgrade()
     {
-        UpgradeUI.SetActive(false);
-
         for (int i = 0; i < currentUpgradePanel.Count; i++)
         {
             Destroy(currentUpgradePanel[i]);
@@ -96,6 +96,15 @@ public class LevelUpManager : MonoBehaviour
 
         currentUpgradePanel.Clear();
         currentObtainableList.Clear();
+    }
+
+    public void EndUpgrade()
+    {
+        UpgradeUI.SetActive(false);
+
+        DeleteCurrentUpgrade();
+
+        crystalPanel.Clear();
 
         Time.timeScale = 1;
 
@@ -306,7 +315,13 @@ public class LevelUpManager : MonoBehaviour
 
     public void Reroll()
     {
+        DeleteCurrentUpgrade();
         MakeWeaponsList();
+
+        rerollBtn.SetActive(false);
+        UpgradeSlotParent.DOScale(new Vector3(1, 1, 1), 0.2f).SetEase(Ease.Linear).OnComplete(() => upgradeSlotCover.SetActive(false)).SetUpdate(true);
+
+        Time.timeScale = 0;
     }
 
 }
