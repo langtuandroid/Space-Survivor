@@ -70,7 +70,7 @@ public class FirebaseInit : MonoBehaviour
 
                 print("Firebase dependencies 연동 선공 + " + task.Result);
 
-                GoogleMobileAds.Api.Mediation.AppLovin.AppLovin.Initialize();
+                // GoogleMobileAds.Api.Mediation.AppLovin.AppLovin.Initialize();
             }
             else
             {

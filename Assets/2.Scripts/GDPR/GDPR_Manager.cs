@@ -5,7 +5,6 @@ using GoogleMobileAds.Api;
 using GoogleMobileAds.Ump;
 using GoogleMobileAds.Ump.Api;
 using GoogleMobileAds.Common;
-using AudienceNetwork;
 
 public class GDPR_Manager : MonoBehaviour
 {
