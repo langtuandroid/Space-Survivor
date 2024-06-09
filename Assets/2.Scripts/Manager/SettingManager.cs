@@ -187,6 +187,8 @@ public class SettingManager : MonoBehaviour, IUIBase
     public void Hide()
     {
         Destroy(gameObject);
+
+        GameManager.instance.UnPuase();
     }
 
 }

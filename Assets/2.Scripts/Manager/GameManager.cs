@@ -676,5 +676,17 @@ public class GameManager : MonoBehaviour
     {
         var menu = Instantiate(Resources.LoadAll<GameObject>("UI/Setting").First(), MainUIParent).GetComponent<IUIBase>();
         menu.Show();
+
+        Pause();
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void UnPuase()
+    {
+        Time.timeScale = 1;
     }
 }
