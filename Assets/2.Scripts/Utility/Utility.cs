@@ -6,10 +6,17 @@ using System.Linq;
 using TMPro;
 using UnityEngine.Localization;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using Newtonsoft.Json;
 
-
-public class Utility : MonoBehaviour
+public static class Utility
 {
+    public static T DeepCopy<T>(this T self)
+    {
+        // JSON 직렬화를 이용한 깊은 복사
+        string json = JsonConvert.SerializeObject(self);
+        return JsonConvert.DeserializeObject<T>(json);
+    }
+
     public static Vector2 GetDirection(Vector2 origin, Vector2 target)
     {
         return (target - origin).normalized;
@@ -286,4 +293,6 @@ public class Utility : MonoBehaviour
             }
         }
     }
+
+
 }
