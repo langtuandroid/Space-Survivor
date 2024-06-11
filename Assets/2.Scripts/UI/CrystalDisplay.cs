@@ -22,8 +22,16 @@ public class CrystalDisplay : MonoBehaviour
     {
         //crystalText.text = UserDataManager.instance.LoadUserData().crystal.ToString();
 
-        crystalText.text = UserDataManager.instance.currentUserData.crystal.ToString();
+        // crystalText.text = UserDataManager.instance.currentUserData.crystal.ToString();
+
+        this.SetListener(GameObserverType.Game.Crystal, () => crystalText.text = UserDataManager.instance.currentUserData.crystal.ToString());
+        GameObserver.Call(GameObserverType.Game.Crystal);
+        
         shopCrystalText.text = crystalText.text;
+    }
+
+    private void OnDisable() {
+        this.RemoveListener(GameObserverType.Game.Crystal);
     }
 
     public void ChangeCrystalText(int value)

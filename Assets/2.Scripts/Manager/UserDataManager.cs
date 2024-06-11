@@ -191,6 +191,8 @@ public class UserDataManager : MonoBehaviour
 
         currentUserData.crystal += value;
 
+        GameObserver.Call(GameObserverType.Game.Crystal);
+
         foreach (var text in crystalTextList)
         {
             text.text = currentUserData.crystal.ToString();

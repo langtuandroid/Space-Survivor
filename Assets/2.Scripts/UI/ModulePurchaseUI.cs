@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using Unity.VisualScripting;
 
 
 public class ModulePurchaseUI : MonoBehaviour
@@ -54,16 +55,20 @@ public class ModulePurchaseUI : MonoBehaviour
 
     private void OnEnable()
     {
-        UserDataManager.instance.crystalTextList.Add(crystalText);
+        // UserDataManager.instance.crystalTextList.Add(crystalText);
+        // crystalText.text = UserDataManager.instance.currentUserData.crystal.ToString();
 
-        crystalText.text = UserDataManager.instance.currentUserData.crystal.ToString();
+        this.SetListener(GameObserverType.Game.Crystal, () => crystalText.text = UserDataManager.instance.currentUserData.crystal.ToString());
+        GameObserver.Call(GameObserverType.Game.Crystal);
         oneModuleCostText.text = oneModuleCost.ToString();
         tenModuleCostText.text = tenModuleCost.ToString();
     }
 
     private void OnDestroy()
     {
-        UserDataManager.instance.crystalTextList.Remove(crystalText);
+        // UserDataManager.instance.crystalTextList.Remove(crystalText);
+
+        this.RemoveListener(GameObserverType.Game.Crystal);
 
         if (timeCheck != null)
             StopCoroutine(timeCheck);

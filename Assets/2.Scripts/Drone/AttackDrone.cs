@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class AttackDrone : Drone
 {
-    public enum AttackDroneType
-    {
-        bullet,
-        missile,
-        laser
-    }
+    
 
 
 }
